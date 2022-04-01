@@ -1,0 +1,135 @@
+.topnews{
+    display: flex;
+    justify-content: center;
+}
+.topnews li{
+    list-style: none;
+}
+.outer-wrapper{
+    margin: 35px 0px;
+}
+.outer-wrapper h1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.right ul{
+    display: grid;
+    position: relative;
+    grid-template-columns: 300px 300px;
+    grid-gap: 20px;
+    padding: 0px !important;
+    margin-left: 20px !important;
+}
+.left img{
+    height: 381px;
+    width: 620px;
+}
+.right img{
+    height: 181px;
+    width: 300px;
+}
+.caption-big{
+    position: relative;
+    top: -57px;
+    width: 620px;
+    word-break: break-word;
+    padding: 0px 5px;
+    background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.99) 73%,#000 74%);
+    color: white !important;
+    text-decoration: none !important;
+}
+.caption{
+    position: absolute;
+    /* bottom: 0; */
+    width: 300px;
+    word-break: break-word;
+    padding: 0px 5px;
+    background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.99) 73%,#000 74%);
+}
+.top{
+    bottom: 50.5%;
+    font-size: 16px;
+    color: white;
+}
+.btm{
+    bottom: -2.1%;
+    font-size: 16px;
+    color: white;
+}
+@media only screen and (max-width: 1276px) {
+    .topnews{
+        display: flex;
+        flex-direction: column;
+    }
+    .left{
+        display: flex;
+        justify-content: center;
+    }
+    .right{
+        display: flex;
+        justify-content: center;
+    }
+    .right ul{
+        margin-left: 0px !important;
+    }
+    .left{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        flex-direction: column;
+    }
+    .left a{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .caption-big{
+        top: -54px;
+    }
+}
+@media only screen and (max-width: 617px) {
+    .left img{
+        height: 300px;
+        width: 425px;
+    }
+    .right ul{
+        display: block;
+    }
+    .caption-big{
+        width: 425px;
+    }
+    .right img{
+        height: 200px;
+        width: 370px;
+    }
+    #one{
+        bottom: 75% !important;
+    }
+    #two{
+        bottom: 51% !important;
+    }
+    #three{
+        bottom: 27% !important;
+    }
+    #four{
+        bottom: 3% !important;
+    }
+    .topnews li{
+        margin: 40px 0px;
+    }
+    .caption{
+        width: 370px;
+    }
+}
+@media only screen and (max-width: 437px) {
+    .left img{
+        height: 225px;
+        width: 360px;
+    }
+    .caption-big{
+        width: 360px;
+    }
+}
