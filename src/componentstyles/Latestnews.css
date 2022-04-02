@@ -1,0 +1,9 @@
+.stories{
+    width: 345px;
+    border: 1px solid black;
+    max-height: 700px;
+    overflow-y: auto;
+}
+.storyHeaders{
+    border: 2px solid #908e8e;
+}

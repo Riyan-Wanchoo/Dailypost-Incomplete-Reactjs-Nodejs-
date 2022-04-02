@@ -1,16 +1,22 @@
 import "../componentstyles/Home.css"
 import React from 'react'
+import Latestnews from "./Latestnews"
 
 const Home = () => {
   return (
+    <>
     <div className="outer-wrapper">
-      <h1>Top Headlines</h1>
+      {/* <h1>Top Headlines</h1> */}
       <div className='topnews'>
         <div className="left">
-          <a href="/">
-            <img src="https://resize.indiatvnews.com/en/resize/newbucket/620_-/2022/04/oilpipeline-1648804069.jpg" alt="" />
-          </a>
-          <h4 className="caption-big">'Europe major buyer of Russian oil, gas even after war started': India talks tough amid US' warning</h4>
+          <div className="innerleft">
+            <div>
+              <a href="/">
+                <img src="https://resize.indiatvnews.com/en/resize/newbucket/620_-/2022/04/oilpipeline-1648804069.jpg" alt="" />
+                <h4 className="caption-big">'Europe major buyer of Russian oil, gas even after war started': India talks tough amid US' warning</h4>
+              </a>
+            </div>
+          </div>
         </div>
         <div className="right">
           <ul>
@@ -42,6 +48,8 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <Latestnews/>
+    </>
   )
 }
 
