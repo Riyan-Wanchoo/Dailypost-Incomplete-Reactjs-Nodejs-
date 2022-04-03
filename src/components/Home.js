@@ -13,7 +13,7 @@ const Home = () => {
             <div>
               <a href="/">
                 <img src="https://resize.indiatvnews.com/en/resize/newbucket/620_-/2022/04/oilpipeline-1648804069.jpg" alt="" />
-                <h4 className="caption-big">'Europe major buyer of Russian oil, gas even after war started': India talks tough amid US' warning</h4>
+                <h4 className="captionBig">'Europe major buyer of Russian oil, gas even after war started': India talks tough amid US' warning</h4>
               </a>
             </div>
           </div>
