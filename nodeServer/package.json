@@ -1,0 +1,15 @@
+{
+  "name": "dailypostapi",
+  "version": "1.0.0",
+  "description": "Creating api for fetching news articles from the database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Riyan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9"
+  }
+}
