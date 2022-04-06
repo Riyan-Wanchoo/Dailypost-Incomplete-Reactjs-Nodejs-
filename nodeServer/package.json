@@ -1,7 +1,7 @@
 {
-  "name": "dailypostapi",
+  "name": "nodeserver",
   "version": "1.0.0",
-  "description": "Creating api for fetching news articles from the database",
+  "description": "Api",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
-    "mongoose": "^6.2.9"
+    "mongoose": "^6.2.10"
   }
 }
