@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <>
     <div className="outer-wrapper">
-      {/* <h1>Top Headlines</h1> */}
       <div className='topnews'>
         <div className="left">
           <div className="innerleft">

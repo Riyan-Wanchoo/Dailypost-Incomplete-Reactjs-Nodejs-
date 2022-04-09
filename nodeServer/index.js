@@ -1,13 +1,17 @@
 const express = require('express')
 const connecttomongo = require("./db")
 
+
 connecttomongo()
 const app = express()
-const port = 3000
+var cors = require('cors')
+const port = 8000
 
+app.use(cors())
 app.use(express.json())
 
 app.use("/api/addNews", require("./routes/addNews"))
+app.use("/api/addStory", require("./routes/addStory"))
 app.use("/api/fetchNews", require("./routes/fetchNews"))
 
 app.listen(port, () => {

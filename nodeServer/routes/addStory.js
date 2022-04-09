@@ -1,5 +1,5 @@
 const express = require("express")
-const News = require("../models/News")
+const Stories = require("../models/Stories")
 const router = express.Router()
 
 router.post('/', (req, res)=>{
@@ -8,18 +8,16 @@ router.post('/', (req, res)=>{
     const author = req.body.author
     const content = req.body.content
     const slug = req.body.slug
-    const imageUrl = req.body.imageUrl
 
-    const newsIns = News({
+    const StoryIns = Stories({
         title: title,
         category: category,
         author: author,
         content: content,
-        slug: slug,
-        imageUrl: imageUrl
+        slug: slug
     })
-    newsIns.save()
-    res.send(req.body)
+    StoryIns.save()
+    res.json(req.body)
 })
 
 module.exports = router

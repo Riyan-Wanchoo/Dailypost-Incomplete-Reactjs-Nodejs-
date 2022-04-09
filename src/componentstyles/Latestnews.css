@@ -13,7 +13,7 @@ a:hover{
 .stories{
     width: 335px;
     border: 1px solid black;
-    max-height: 1112px;
+    max-height: 740px;
     overflow-y: auto;
 }
 .storyHeaders{

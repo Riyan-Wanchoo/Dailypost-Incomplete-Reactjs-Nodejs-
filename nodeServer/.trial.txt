@@ -1,0 +1,72 @@
+[
+    {
+        "_id": "624ebee6d1be62775562b976",
+        "title": "String",
+        "category": "String",
+        "author": "String",
+        "content": "String",
+        "slug": "slug34",
+        "date": "2022-04-07T10:37:26.776Z",
+        "__v": 0
+    },
+    {
+        "_id": "624ebee9d1be62775562b978",
+        "title": "String",
+        "category": "String",
+        "author": "String",
+        "content": "String",
+        "slug": "slug2434",
+        "date": "2022-04-07T10:37:29.502Z",
+        "__v": 0
+    },
+    {
+        "_id": "624ebeebd1be62775562b97a",
+        "title": "String",
+        "category": "String",
+        "author": "String",
+        "content": "String",
+        "slug": "slug232434",
+        "date": "2022-04-07T10:37:31.158Z",
+        "__v": 0
+    },
+    {
+        "_id": "624ebeecd1be62775562b97c",
+        "title": "String",
+        "category": "String",
+        "author": "String",
+        "content": "String",
+        "slug": "slug232423434",
+        "date": "2022-04-07T10:37:32.770Z",
+        "__v": 0
+    },
+    {
+        "_id": "624ebef3d1be62775562b97e",
+        "title": "String",
+        "category": "String",
+        "author": "String",
+        "content": "String",
+        "slug": "slug23344",
+        "date": "2022-04-07T10:37:39.284Z",
+        "__v": 0
+    },
+    {
+        "_id": "624ebef6d1be62775562b980",
+        "title": "String",
+        "category": "String",
+        "author": "String",
+        "content": "String",
+        "slug": "slug24",
+        "date": "2022-04-07T10:37:42.121Z",
+        "__v": 0
+    },
+    {
+        "_id": "624ebef8d1be62775562b982",
+        "title": "String",
+        "category": "String",
+        "author": "String",
+        "content": "String",
+        "slug": "sl344",
+        "date": "2022-04-07T10:37:44.704Z",
+        "__v": 0
+    }
+]

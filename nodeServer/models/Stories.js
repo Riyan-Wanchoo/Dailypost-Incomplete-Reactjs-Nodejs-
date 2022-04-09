@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const newsSchema = new Schema({
+const storySchema = new Schema({
   title:  String,
   category:  String,
   author: String,
   content:   String,
   slug: { type: String, unique: true },
-  imageUrl: String,
   date: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("News", newsSchema)
+module.exports = mongoose.model("Stories", storySchema)
