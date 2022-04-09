@@ -22,10 +22,10 @@ const Latestnews = (props) => {
     window.open(`/${slug}`, '_blank');
   }
   const handleNewstitleclick = (slug) => {
-    window.open('/', '_blank');
+    window.open(`/${slug}`, '_blank');
   }
   const handleMaltitleclick = (slug) => {
-    window.open('/', '_blank');
+    window.open(`/${slug}`, '_blank');
   }
   async function getnews(url = 'http://localhost:8000/api/fetchnews') {
     let response = await fetch(url, {
@@ -39,6 +39,7 @@ const Latestnews = (props) => {
   }
 
   return (
+    <>
     <div className="story-container">
       <div className="stories">
         <div className="storyHeader">
@@ -57,11 +58,11 @@ const Latestnews = (props) => {
         {updatenews && data.topNews && data.topNews.map((element) => {
           return <div className="newsItem" key={element._id}>
             <div className="image-holder">
-              <img src={element.imageUrl} alt="" />
+              <img className="imgWidth" src={element.imageUrl} alt="" />
             </div>
             <div className="content">
               <p className="category"><b>{element.category}</b></p>
-              <p className="title" onClick={() => handleNewstitleclick(1)}><strong>{element.title}</strong></p>
+              <p className="title" onClick={() => handleNewstitleclick(element.slug)}><strong>{element.title}</strong></p>
               <p className="desc">{element.content}</p>
             </div>
           </div>
@@ -70,18 +71,20 @@ const Latestnews = (props) => {
       <div className="may-also-like">
         <h5 className="mal-header">You may also like</h5>
         {updatenews && data.mal && data.mal.map((mal)=>{
-          return <div className="mal-Item">
-          <img src="https://resize.indiatvnews.com/en/resize/newbucket/290_-/2022/04/elonmusl-1649073762.jpg" alt="" className="mal-img" />
+          return <div className="mal-Item" key={mal.imageUrl}>
+          <img src={mal.imageUrl} alt="" className="mal-img" />
           <div className="mal-category">
-            Business
+            {mal.category}
           </div>
-          <div className="mal-title" onClick={() => handleMaltitleclick(1)}>
-            <b>Elon Musk buys 73.5 million shares of Twitter to acquire 9.2 per cent stake</b>
+          <div className="mal-title" onClick={() => handleMaltitleclick(mal.slug)}>
+            <b>{mal.title}</b>
           </div>
         </div>
         })}
       </div>
     </div>
+    <hr/>
+    </>
   )
 }
 

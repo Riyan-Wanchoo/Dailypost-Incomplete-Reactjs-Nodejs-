@@ -12,8 +12,8 @@ a:hover{
 }
 .stories{
     width: 335px;
-    border: 1px solid black;
-    max-height: 740px;
+    /* border: 1px solid black; */
+    /* max-height: 740px; */
     overflow-y: auto;
 }
 .storyHeaders{
@@ -71,7 +71,7 @@ a:hover{
 }
 .top-stories-header{
     border-bottom: 2px solid #8b8a8a;
-    padding: 15px 10px;
+    padding-bottom: 15px;
     margin: 0px !important;
 }
 .mal-Item{
@@ -85,6 +85,7 @@ a:hover{
     margin-bottom: 10px;
 }
 .mal-img{
+    width: 265px;
     margin-bottom: 8px;
 }
 .mal-category{
@@ -92,9 +93,13 @@ a:hover{
     font-weight: bold;
 }
 .mal-title{
+    line-height: 20px;
     margin-top: 3px;
 }
 .mal-title:hover{
     color: rgb(21, 175, 175);
     cursor: pointer;
+}
+.imgWidth{
+    width: 170px;
 }

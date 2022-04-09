@@ -11,9 +11,15 @@ router.get('/', async (req, res)=>{
     let topNews = []
     let latestNews = []
     let mal = []
-    for (let index = 0; index < 1; index++) {
-        if (topNews==[]) {
-            topNews = allNews[index]
+    for (let index = 0; index < 15; index++) {
+        // if (topNews==[]) {
+        //     topNews = allNews[index]
+        // }
+        // else{
+        //     topNews.push(allNews[index])
+        // }
+        if (index>=10) {
+            mal.push(allNews[index])
         }
         else{
             topNews.push(allNews[index])
