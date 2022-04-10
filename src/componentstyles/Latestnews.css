@@ -14,13 +14,13 @@ a:hover{
     width: 335px;
     /* border: 1px solid black; */
     /* max-height: 740px; */
-    overflow-y: auto;
 }
 .storyHeaders{
     border: 2px solid #908e8e;
 }
 .storyItem{
     padding: 10px 8px 0px 8px;
+    cursor: pointer;
 }
 .storytitle{
     font-size: 14px;
@@ -55,7 +55,7 @@ a:hover{
     margin-bottom: 5px !important;
 }
 .title:hover{
-    color: rgb(21, 175, 175);
+    /* color: rgb(21, 175, 175); */
     cursor: pointer;
 }
 .newsItem{
@@ -63,11 +63,7 @@ a:hover{
     width: 635px;
     border-bottom: 1px solid #cdc4c4;
     padding: 10px 0px;
-}
-.latest-header{
-    /* border-bottom: 2px solid #a28d8d; */
-    margin: 0px !important;
-    margin: 0px !important;
+    cursor: pointer;
 }
 .top-stories-header{
     border-bottom: 2px solid #8b8a8a;
@@ -76,6 +72,7 @@ a:hover{
 }
 .mal-Item{
     margin-top: 30px !important;
+    cursor: pointer;
 }
 .may-also-like{
     width: min-content;
@@ -102,4 +99,88 @@ a:hover{
 }
 .imgWidth{
     width: 170px;
+}
+@media only screen and (max-width: 1345px) {
+    .story-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .stories{
+        width: 98%;
+    }
+    .latest-news{
+        width: 98%;
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+    .newsItem{
+        width: 100%;
+    }
+    .may-also-like{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 98%;
+    }
+    .mal-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .mal-Item{
+        width: 100%;
+    }
+    .mal-img{
+        width: 98%;
+    }
+    .latest-header{
+        margin-bottom: 15px;
+    }
+    /* .newsItem{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .image-holder{
+        width: 90%;
+    }
+    .imgWidth{
+        width: 100%;
+    } */
+}
+@media only screen and (max-width: 600px) {
+    .stories{
+        width: 90%;
+    }
+    .may-also-like{
+        width: 90%;
+    }
+    .latest-news{
+        width: 90%;
+    }
+    .latest-header{
+        margin-left: 15px;
+    }
+    .newsItem{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .image-holder{
+        width: 90%;
+    }
+    .imgWidth{
+        width: 100%;
+    }
+    .content{
+        margin-top: 10px;
+        margin-left: 0px;
+        width: 90%;
+    }
 }

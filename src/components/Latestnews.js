@@ -18,14 +18,22 @@ const Latestnews = (props) => {
 
 
 
-  const handleStorytitleclick = (slug) => {
+  const handleStorydivclick = (slug) => {
     window.open(`/${slug}`, '_blank');
   }
-  const handleNewstitleclick = (slug) => {
+  const handleNewsdivclick = (slug) => {
     window.open(`/${slug}`, '_blank');
   }
-  const handleMaltitleclick = (slug) => {
+  const handleMaldivclick = (slug) => {
     window.open(`/${slug}`, '_blank');
+  }
+  const hover = (item, index) => {
+    const title = document.getElementById(item + index)
+    title.style.color = "rgb(21, 175, 175)"
+  }
+  const unHover = (item, index) => {
+    const title = document.getElementById(item + index)
+    title.style.color = "black"
   }
   async function getnews(url = 'http://localhost:8000/api/fetchnews') {
     let response = await fetch(url, {
@@ -46,8 +54,8 @@ const Latestnews = (props) => {
           <h5 className="top-stories-header">Top Stories</h5>
         </div>
         {updatenews && data.stories && data.stories.map((story) => {
-          return <div className="storyItem" key={story.slug}>
-            <p className='storytitle' key={story.slug} onClick={() => handleStorytitleclick(story.slug)}>
+          return <div className="storyItem" key={story.slug} onClick={() => handleStorydivclick(story.slug)}>
+            <p className='storytitle' key={story.slug}>
               <b key={story.slug}>{"• " + story.title}</b>
             </p>
           </div>
@@ -55,14 +63,14 @@ const Latestnews = (props) => {
       </div>
       <div className="latest-news">
         <h5 className="latest-header">Latest News</h5>
-        {updatenews && data.topNews && data.topNews.map((element) => {
-          return <div className="newsItem" key={element._id}>
+        {updatenews && data.topNews && data.topNews.map((element, index) => {
+          return <div className="newsItem" key={element._id} onClick={() => handleNewsdivclick(element.slug)} onMouseOver={() => hover("newsItem", index)} onMouseLeave={() => unHover("newsItem", index)}>
             <div className="image-holder">
               <img className="imgWidth" src={element.imageUrl} alt="" />
             </div>
             <div className="content">
               <p className="category"><b>{element.category}</b></p>
-              <p className="title" onClick={() => handleNewstitleclick(element.slug)}><strong>{element.title}</strong></p>
+              <p className="title" id={"newsItem" + index}><strong>{element.title}</strong></p>
               <p className="desc">{element.content}</p>
             </div>
           </div>
@@ -70,13 +78,13 @@ const Latestnews = (props) => {
       </div>
       <div className="may-also-like">
         <h5 className="mal-header">You may also like</h5>
-        {updatenews && data.mal && data.mal.map((mal)=>{
-          return <div className="mal-Item" key={mal.imageUrl}>
+        {updatenews && data.mal && data.mal.map((mal, index)=>{
+          return <div className="mal-Item" key={mal.imageUrl} onClick={() => handleMaldivclick(mal.slug)} onMouseOver={() => hover("malItem", index)} onMouseLeave={() => unHover("malItem", index)}>
           <img src={mal.imageUrl} alt="" className="mal-img" />
           <div className="mal-category">
             {mal.category}
           </div>
-          <div className="mal-title" onClick={() => handleMaltitleclick(mal.slug)}>
+          <div className="mal-title" id={"malItem" + index}>
             <b>{mal.title}</b>
           </div>
         </div>
