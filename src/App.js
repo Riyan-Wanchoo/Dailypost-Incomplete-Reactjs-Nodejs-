@@ -8,6 +8,7 @@ import Health from "./categories/Health";
 import Sports from "./categories/Sports";
 import Science from "./categories/Science";
 import Travel from "./categories/Travel";
+import Slug from "./categories/Slug";
 import Entertainment from "./categories/Entertainment";
 import { Routes, Route, Link } from "react-router-dom";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/news/sports" element={<Sports />} />
         <Route path="/news/science" element={<Science />} />
         <Route path="/news/travel" element={<Travel />} />
+        <Route path="/news/:category/:slug" element={<Slug />} />
       </Routes>
     </div>
   );
