@@ -18,6 +18,7 @@ const Slug = () => {
     const params = useParams()
     const slug = params.slug
     const category = params.category
+    const IST = new Date(Onenews.date).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'});
 
     useEffect(() => {
         fetchFromDb()
@@ -75,28 +76,24 @@ const Slug = () => {
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
     }
-    const ScrollHover = ()=>{
+    const ScrollHover = () => {
         setsvgFill("#077fba")
     }
-    const iconHover = ()=>{
-
-    }
-    const removeHover = ()=>{
+    const removeHover = () => {
         setsvgFill("#0195dd")
     }
     return (
         <>
-            {/* <div
-                dangerouslySetInnerHTML={{ __html: Onenews.content }}
-            /> */}
             <div className='cont-contain'>
                 {/* <img style={buttonStyle} onClick={goToTop} src="/Scroll-To-Top.png" alt="" /> */}
                 <svg onClick={goToTop} onMouseOver={ScrollHover} onMouseLeave={removeHover} style={buttonStyle} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><g fill="none" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none"><path d="M0,172v-172h172v172z" fill="none"></path><g fill={svgFill}><path d="M86,17.2c-37.9948,0 -68.8,30.8052 -68.8,68.8c0,37.9948 30.8052,68.8 68.8,68.8c37.9948,0 68.8,-30.8052 68.8,-68.8c0,-37.9948 -30.8052,-68.8 -68.8,-68.8zM112.9868,78.5868c-2.24173,2.24173 -5.8652,2.24173 -8.10693,0l-13.14653,-13.14653v54.95973c0,3.1648 -2.5628,5.73333 -5.73333,5.73333c-3.17053,0 -5.73333,-2.56853 -5.73333,-5.73333v-54.95973l-13.14653,13.14653c-2.24173,2.24173 -5.8652,2.24173 -8.10693,0c-2.24173,-2.24173 -2.24173,-5.8652 0,-8.10693l22.93333,-22.93333c1.118,-1.118 2.58573,-1.67987 4.05347,-1.67987c1.46773,0 2.93547,0.56187 4.05347,1.67987l22.93333,22.93333c2.24173,2.24173 2.24173,5.8652 0,8.10693z"></path></g></g></svg>
                 <div className="cont my-4">
-                    <p className='location'><Link to="/">Home</Link>/<Link to="/">News</Link>/<Link to={"/news/"+ category}>{category}</Link>/<Link to={"/news/" + category + "/" + slug}>{slug}</Link></p>
-                    <h2 className='newsHeader'>New York shooting: Man in gas mask fired 33 rounds; cops share image of 'person of interest' | Top points</h2>
+                    <p className='location'><Link to="/">Home</Link>/<Link to="/">News</Link>/<Link to={"/news/" + category}>{category}</Link>/<Link to={"/news/" + category + "/" + slug}>{slug}</Link></p>
+                    {/* <h2 className='newsHeader'>New York shooting: Man in gas mask fired 33 rounds; cops share image of 'person of interest' | Top points</h2> */}
+                    <h2 className='newsHeader'>{Onenews.title}</h2>
                     <br />
-                    <i className='tdesc'>Several people were injured after an unidentified gunman opened fire at a subway station in New York, US. The Federal Bureau of Investigation is investigating the case with the New York Police Department. Here are the top developments around the incident.</i>
+                    {/* <i className='tdesc'>Several people were injured after an unidentified gunman opened fire at a subway station in New York, US. The Federal Bureau of Investigation is investigating the case with the New York Police Department. Here are the top developments around the incident.</i> */}
+                    <i className='tdesc'>{Onenews.desc}</i>
                     <div className="timg">
                         <div className='inside'>
                             <div className="tleft">
@@ -106,7 +103,7 @@ const Slug = () => {
                                 <div className='left-right'>
                                     <p className='dailyposthead'>DailyPost</p>
                                     <p className='Delhi'>New Delhi</p>
-                                    <p className='Updated'>Updated on: April 13, 2022 8:02 IST</p>
+                                    <p className='Updated'>Updated on: {IST} IST</p>
                                 </div>
                             </div>
                             <div className="tright">
@@ -128,14 +125,16 @@ const Slug = () => {
                                 </svg>
                             </div>
                         </div>
-                        <img className='mainImg' src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/New_York1_1200x768.jpeg?xgScfsqHP4GGJDhGgRmZG4G_Q_ASh5b2" />
+                        {/* <img className='mainImg' src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/New_York1_1200x768.jpeg?xgScfsqHP4GGJDhGgRmZG4G_Q_ASh5b2" /> */}
+                        <img className='mainImg' src={Onenews.imageUrl} />
                         <div className='descImg'>
-                            <p className='mt-2 mb-0' style={{ width: "750px", fontFamily: "'Open Sans', sans-serif", fontSize: "15px" }}>Screengrab from a cellphone video shows people lying on the platform at the Brooklyn subway station in New York after an unidentified gunman opened fire. (AP/PTI)</p>
+                            {/* <p className='mt-2 mb-0' style={{ width: "750px", fontFamily: "'Open Sans', sans-serif", fontSize: "15px" }}>Screengrab from a cellphone video shows people lying on the platform at the Brooklyn subway station in New York after an unidentified gunman opened fire. (AP/PTI)</p> */}
+                            <p className='mt-2 mb-0' style={{ width: "750px", fontFamily: "'Open Sans', sans-serif", fontSize: "15px" }}>{Onenews.imageDesc}</p>
                             <hr style={{ width: "750px" }} />
                         </div>
                     </div>
                     <div className='tcontent'>
-                        <p>
+                        {/* <p>
                             Multiple people were fired upon at a subway station in New York, US, on Tuesday, April 12. Fire personnel responding to reports of smoke at the 36th Street station in Sunset Park, Brooklyn, found multiple people shot.
                         </p>
                         <br />
@@ -185,7 +184,10 @@ const Slug = () => {
                         </p><br /><br />
                         <p>
                             New York, the United States's most populous city, has seen a sharp rise in violent crime during the pandemic, including a spate of seemingly random attacks on New York City's subway. The system is one of the world's oldest and most extensive.
-                        </p><br />
+                        </p><br /> */}
+                        <div
+                            dangerouslySetInnerHTML={{ __html: Onenews.content }}
+                        />
                     </div>
                 </div>
             </div>
