@@ -1,5 +1,7 @@
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+// Category imports
 import India from "./categories/India";
 import World from "./categories/World";
 import Tech from "./categories/Tech";
@@ -10,7 +12,8 @@ import Science from "./categories/Science";
 import Travel from "./categories/Travel";
 import Slug from "./categories/Slug";
 import Entertainment from "./categories/Entertainment";
-import { Routes, Route, Link } from "react-router-dom";
+// Router imports
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
         <Route path="/news/travel" element={<Travel />} />
         <Route path="/news/:category/:slug" element={<Slug />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }

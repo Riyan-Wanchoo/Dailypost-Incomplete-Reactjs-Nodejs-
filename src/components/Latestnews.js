@@ -71,7 +71,7 @@ const Latestnews = (props) => {
             <div className="content">
               <p className="category"><b>{element.category}</b></p>
               <p className="title" id={"newsItem" + index}><strong>{element.title}</strong></p>
-              <p className="desc">{element.content}</p>
+              <p className="desc">{element.title}</p>
             </div>
           </div>
         })}
