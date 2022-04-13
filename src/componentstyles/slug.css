@@ -1,0 +1,149 @@
+.cont-contain{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+.cont{
+    /* width: 55%; */
+    width: 842px;
+    font-family: 'Poppins', sans-serif;
+}
+.location{
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+}
+.newsHeader{
+    margin-bottom: 0rem;
+}
+.tdesc{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 19px;
+}
+.timg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+}
+.logo{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.tleft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.dailyposthead{
+    font-family: inherit;
+    margin: 0px !important;
+}
+.Delhi{
+    font-family: Roboto, sans-serif;
+    margin: 0px !important;
+    font-size: 14px;
+}
+.Updated{
+    font-family: Roboto, sans-serif;
+    margin: 0px !important;
+    font-size: 14px;
+}
+.left-right{
+    margin-left: 10px;
+}
+.inside{
+    width: 750px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.tright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tcontent p{
+    margin: 0px;
+}
+.mainImg{
+    width: 750px;
+}
+.tcontent{
+    font-family: "Open Sans";
+    font-size: 17px;
+    margin: 0px !important;
+}
+.ico{
+    cursor: pointer;
+}
+#icon1{
+    cursor: pointer;
+}
+#icon1:hover{
+    fill: #26498b;
+}
+#icon2:hover{
+    fill: #2ca1d4;
+}
+#icon3:hover{
+    fill: #1f8215;
+}
+#icon4:hover{
+    fill: #c48106;
+}
+#icon5:hover{
+    fill: #c48106;
+}
+@media only screen and (max-width: 877px) {
+    .newsHeader{
+        font-size: 25px;
+    }
+    .location{
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+    .inside{
+        flex-direction: column;
+    }
+    .tleft{
+        justify-content: flex-start;
+    }
+    .tright{
+        justify-content: space-evenly;
+        margin-top: 10px;
+    }
+    .cont{
+        width: 90%;
+    }
+    .inside{
+        width: 90%;
+    }
+    .tdesc{
+        font-size: 17px;
+    }
+    .mainImg{
+        width: 90%;
+    }
+    .descImg p{
+        width: 100% !important;
+        font-size: 14px;
+    }
+    .descImg hr{
+        width: 100% !important;
+    }
+    .descImg{
+        width: 90%;
+    }
+    .tcontent{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 520px) {
+    .tright{
+        justify-content: space-between;
+    }
+}

@@ -11,6 +11,16 @@
       "src": "dailypost-logo.png",
       "type": "image/png",
       "sizes": "746x554"
+    },
+    {
+      "src": "dailypost-logo-bg.png",
+      "type": "image/png",
+      "sizes": "1154x977"
+    },
+    {
+      "src": "Scroll-To-Top.png",
+      "type": "image/png",
+      "sizes": "659x659"
     }
   ],
   "start_url": ".",
