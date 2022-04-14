@@ -1,6 +1,8 @@
+import React, { useState } from 'react'
+//Component imports
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 // Category imports
 import India from "./categories/India";
 import World from "./categories/World";
@@ -32,7 +34,6 @@ function App() {
         <Route path="/news/travel" element={<Travel />} />
         <Route path="/news/:category/:slug" element={<Slug />} />
       </Routes>
-      <Footer/>
     </div>
   );
 }

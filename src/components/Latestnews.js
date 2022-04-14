@@ -1,23 +1,9 @@
 import "../componentstyles/Latestnews.css"
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 // import "../componentstyles/Home.css"
 // import StoryItem from "./StoryItem"
 
 const Latestnews = (props) => {
-  // const parsedres = {}
-  // const [service, setservice] = useState({})
-  const [data, setdata] = useState({})
-  const [updatenews, setupdatenews] = useState(false)
-
-  useEffect(() => {
-    getnews()
-  }, [])
-  useEffect(() => {
-    setupdatenews(true)
-  }, [data])
-
-
-
   const handleStorydivclick = (category, slug) => {
     window.open(`/news/${category}/${slug}`, '_blank');
   }
@@ -35,16 +21,6 @@ const Latestnews = (props) => {
     const title = document.getElementById(item + index)
     title.style.color = "black"
   }
-  async function getnews(url = 'http://localhost:8000/api/fetchnews') {
-    let response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    const parsedres = await response.json()
-    setdata(parsedres)
-  }
 
   return (
     <>
@@ -53,7 +29,7 @@ const Latestnews = (props) => {
         <div className="storyHeader">
           <h5 className="top-stories-header">Top Stories</h5>
         </div>
-        {updatenews && data.stories && data.stories.map((story) => {
+        {props.newsData.stories && props.newsData.stories.map((story) => {
           return <div className="storyItem" key={story.slug} onClick={() => handleStorydivclick(story.category, story.slug)}>
             <p className='storytitle' key={story.slug}>
               <b key={story.slug}>{"• " + story.title}</b>
@@ -63,7 +39,7 @@ const Latestnews = (props) => {
       </div>
       <div className="latest-news">
         <h5 className="latest-header">Latest News</h5>
-        {updatenews && data.topNews && data.topNews.map((element, index) => {
+        {props.newsData.topNews && props.newsData.topNews.map((element, index) => {
           return <div className="newsItem" key={element._id} onClick={() => handleNewsdivclick(element.category, element.slug)} onMouseOver={() => hover("newsItem", index)} onMouseLeave={() => unHover("newsItem", index)}>
             <div className="image-holder">
               <img className="imgWidth" src={element.imageUrl} alt="" />
@@ -78,7 +54,7 @@ const Latestnews = (props) => {
       </div>
       <div className="may-also-like">
         <h5 className="mal-header">You may also like</h5>
-        {updatenews && data.mal && data.mal.map((mal, index)=>{
+        {props.newsData.mal && props.newsData.mal.map((mal, index)=>{
           return <div className="mal-Item" key={mal.imageUrl} onClick={() => handleMaldivclick(mal.category, mal.slug)} onMouseOver={() => hover("malItem", index)} onMouseLeave={() => unHover("malItem", index)}>
           <img src={mal.imageUrl} alt="" className="mal-img" />
           <div className="mal-category">

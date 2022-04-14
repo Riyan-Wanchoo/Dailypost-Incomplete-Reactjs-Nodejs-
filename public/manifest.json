@@ -21,6 +21,14 @@
       "src": "Scroll-To-Top.png",
       "type": "image/png",
       "sizes": "659x659"
+    },
+    {
+      "src": "loading.gif",
+      "type": "image/gif"
+    },
+    {
+      "src": "newsBg.jpg",
+      "type": "image/jpg"
     }
   ],
   "start_url": ".",
