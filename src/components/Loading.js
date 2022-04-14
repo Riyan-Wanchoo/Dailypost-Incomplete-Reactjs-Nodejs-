@@ -12,9 +12,9 @@ const Loading = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column"}}>
-        <img style={{height: "20%", width: "25%"}} src="/Loading.gif" alt="" />
-        <h4>Dailypost - "Share awareness, Gain awareness"</h4>
-        <span>Loading...</span>
+        <img style={{height: "114px", width: "307px"}} src="/Loading.gif" alt="" />
+        <h4><span>Dailypost</span></h4>
+        <h5 style={{ color: "#0195dd"}}>"Share awareness, Gain awareness"</h5>
     </div>
   )
 }

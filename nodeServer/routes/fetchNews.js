@@ -10,7 +10,6 @@ const chooseNews = 19
 router.get('/', async (req, res)=>{
     const filter = {}
     const allNews = await News.find(filter).sort({_id: -1})
-    console.log(allNews)
 
     let topNews = []
     let latestNews = []
@@ -35,7 +34,6 @@ router.get('/', async (req, res)=>{
         mal: mal,
         stories: stories
     }
-    console.log(allData)
     res.json(allData)
 })
 

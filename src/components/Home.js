@@ -27,15 +27,27 @@ const Home = () => {
       },
     });
     const parsedres = await response.json()
-    setTimeout(() => {
+    if (sessionStorage.getItem("doneOne")=="true") {
       setdata(parsedres)
       setloading(false)
-    }, 10000);
+    }
+    else{
+      setTimeout(() => {
+        setdata(parsedres)
+        setloading(false)
+        sessionStorage.setItem("doneOne", true);
+      }, 5000);
+    }
+  }
+
+  window.onbeforeunload = function(){
+    sessionStorage.clear()
+    localStorage.clear()
   }
   return (
     <>
       {/* <Loading/> */}
-      {loading ? 
+      {loading && !sessionStorage.getItem("doneOne") ? 
       <>
       <Loading />
       </> :
@@ -44,12 +56,6 @@ const Home = () => {
           <Latestnews newsData={data} />
           <Footer/>
         </>}
-      {/* {updatenews &&
-        <>
-          <Topnews topnewsData={data} />
-          <Latestnews newsData={data} />
-        </>
-      } */}
     </>
   )
 }
