@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     background-color: #ffffff;
-    padding: 10px;
+    padding: 15px;
     border-bottom: 1px solid #c2b1b1;
 }
 .head1 img{
@@ -16,7 +16,7 @@
     align-items: center;
     background-color: white;
     /* margin: 15px 0px; */
-    padding: 16px 0px;
+    padding: 8px 0px;
     border-bottom: 1px solid #c2b1b1;
 }
 .head2 ul{
@@ -27,13 +27,14 @@
     margin-bottom: 0px !important;
 }
 .head2 ul li{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 600;
     padding: 5px 25px;
+    text-decoration: underline;
 }
 .head2 ul li a{
     text-decoration: none;
-    color: #0195dd;
+    color: #6c757d;
 }
 .head2 ul li a:hover{
     color: #0c6fa0;
@@ -44,7 +45,18 @@
 .svg{
     position: absolute;
     left: 30px;
-    top: 40px;
+    top: 70px;
+}
+.time{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 5px 10px;
+    font-size: 13px;
+}
+.date span{
+    border-right: 1px solid #aaa2a2;
+    padding: 0px 15px;
 }
 @media only screen and (max-width: 1161px) {
     .head2 ul li{
@@ -75,3 +87,8 @@
         display: block;
     }
   }
+@media only screen and (max-width: 450px){
+    .date span{
+        padding: 0px 5px;
+    }
+}
