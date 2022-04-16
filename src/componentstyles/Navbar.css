@@ -3,7 +3,7 @@
     justify-content: center;
     background-color: #ffffff;
     padding: 15px;
-    border-bottom: 1px solid #c2b1b1;
+    /* border-bottom: 1px solid #c2b1b1; */
 }
 .head1 img{
     width: 107px;
@@ -17,6 +17,7 @@
     background-color: white;
     /* margin: 15px 0px; */
     padding: 8px 0px;
+    border-top: 1px solid #c2b1b1;
     border-bottom: 1px solid #c2b1b1;
 }
 .head2 ul{

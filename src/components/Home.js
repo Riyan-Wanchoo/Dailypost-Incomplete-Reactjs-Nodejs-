@@ -4,19 +4,19 @@ import Latestnews from "./Latestnews"
 import Topnews from "./Topnews"
 import Loading from "./Loading"
 import Footer from "./Footer"
+import Allcatlat from "./Allcatlat"
 
 const Home = () => {
   const [data, setdata] = useState({})
-  const [updatenews, setupdatenews] = useState(false)
   const [loading, setloading] = useState(true)
 
   useEffect(() => {
     getnews()
   }, [])
 
-  useEffect(() => {
-    setupdatenews(true)
-  }, [data])
+  // useEffect(() => {
+  //   setupdatenews(true)
+  // }, [data])
 
   async function getnews(url = 'http://localhost:8000/api/fetchnews') {
     setloading(true)
@@ -27,11 +27,11 @@ const Home = () => {
       },
     });
     const parsedres = await response.json()
-    if (sessionStorage.getItem("doneOne")=="true") {
+    if (sessionStorage.getItem("doneOne") === "true") {
       setdata(parsedres)
       setloading(false)
     }
-    else{
+    else {
       setTimeout(() => {
         setdata(parsedres)
         setloading(false)
@@ -40,21 +40,23 @@ const Home = () => {
     }
   }
 
-  window.onbeforeunload = function(){
+  window.onbeforeunload = function () {
     sessionStorage.clear()
-    localStorage.clear()
+    sessionStorage.setItem("lang", "English")
   }
+
   return (
     <>
       {/* <Loading/> */}
-      {loading && !sessionStorage.getItem("doneOne") ? 
-      <>
-      <Loading />
-      </> :
+      {loading && !sessionStorage.getItem("doneOne") ?
+        <>
+          <Loading />
+        </> :
         <>
           <Topnews topnewsData={data} />
           <Latestnews newsData={data} />
-          <Footer/>
+          <Allcatlat/>
+          <Footer />
         </>}
     </>
   )

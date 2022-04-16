@@ -115,6 +115,9 @@
     }
 }
 @media only screen and (max-width: 617px) {
+    .outer-wrapper{
+        margin: 30px 0px;
+    }
     .left img{
         height: 200px;
         width: 370px;

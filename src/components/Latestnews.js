@@ -67,7 +67,7 @@ const Latestnews = (props) => {
         })}
       </div>
     </div>
-    <hr/>
+    <hr style={{margin:" 3rem 0"}}/>
     </>
   )
 }
