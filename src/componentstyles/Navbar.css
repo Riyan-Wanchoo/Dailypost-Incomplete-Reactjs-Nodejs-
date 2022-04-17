@@ -93,3 +93,16 @@
         padding: 0px 5px;
     }
 }
+@media only screen and (max-width: 393px){
+    .newdelhi{
+        display: none;
+    }
+    .ISTtime{
+        border-right: none !important;
+    }
+}
+@media only screen and (max-width: 323px){
+    .time{
+        padding: 5px 2px;
+    }
+}

@@ -8,11 +8,13 @@ const Allcatlat = () => {
                 <div className='djh'>
                     <div className="two">
                         <h2>India</h2>
-                        <h5 style={{marginBottom: "0px"}}>All India -&gt;</h5>
+                        <h5 style={{ marginBottom: "0px" }}>All India <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                        </svg></h5>
                     </div>
                     <hr />
                     <div className='djh-cont'>
-                        <div className="stories">
+                        <div className="djh-stories story1">
                             <div className="storyItem">
                                 <p className="storytitle">
                                     <b>• Video | US Congresswoman questions Biden admin over its silence to criticize Modi on human rights </b>
@@ -63,12 +65,8 @@ const Allcatlat = () => {
                                 <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/umran.jpg" alt="" />
                                 <span>I am living through Umran Malik: Mentor Dale Steyn in awe of SRH pacer</span>
                             </div>
-                            <div className="djh-card">
-                                <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/umran.jpg" alt="" />
-                                <span>I am living through Umran Malik: Mentor Dale Steyn in awe of SRH pacer</span>
-                            </div>
                         </div>
-                        <div style={{marginLeft: "20px"}} className="stories">
+                        <div style={{ marginLeft: "20px" }} className="djh-stories story2">
                             <div className="storyItem">
                                 <p className="storytitle">
                                     <b>• Video | US Congresswoman questions Biden admin over its silence to criticize Modi on human rights </b>

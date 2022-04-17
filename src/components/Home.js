@@ -36,7 +36,7 @@ const Home = () => {
         setdata(parsedres)
         setloading(false)
         sessionStorage.setItem("doneOne", true);
-      }, 5000);
+      }, 4600);
     }
   }
 

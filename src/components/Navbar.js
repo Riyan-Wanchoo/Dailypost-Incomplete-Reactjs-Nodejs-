@@ -95,7 +95,7 @@ const Navbar = () => {
     <nav>
       <div className="time">
         <div className="date">
-          <span>{days[day]}, {today}</span><span>{time} IST</span><span style={{ borderRight: "none" }}>New Delhi</span>
+          <span>{days[day]}, {today}</span><span className="ISTtime">{time} IST</span><span className="newdelhi" style={{ borderRight: "none" }}>New Delhi</span>
         </div>
         {/* <div className="country"> */}
         {/* <img style={{ width: "15px", marginRight: "5px", marginBottom: "2px" }} src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png?20111003033457" alt="" />

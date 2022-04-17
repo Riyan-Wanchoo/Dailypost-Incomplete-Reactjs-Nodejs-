@@ -1,37 +1,42 @@
 ::-webkit-scrollbar {
     width: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
-.topnews{
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.topnews {
     display: flex;
     justify-content: center;
 }
-.topnews li{
+
+.topnews li {
     list-style: none;
 }
-.outer-wrapper{
+
+.outer-wrapper {
     margin: 70px 0px;
 }
-.outer-wrapper h1{
+
+.outer-wrapper h1 {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
-.right ul{
+
+.right ul {
     display: grid;
     position: relative;
     grid-template-columns: 300px 300px;
@@ -39,136 +44,188 @@
     padding: 0px !important;
     margin-left: 20px !important;
 }
-.left img{
+
+.left img {
     height: 381px;
     width: 620px;
 }
-.right img{
+
+.right img {
     height: 181px;
     width: 300px;
 }
-.captionBig{
+
+.captionBig {
     position: absolute;
     bottom: -2.2%;
     width: 620px;
     word-break: break-word;
     padding: 0px 5px;
-    background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.99) 73%,#000 74%);
-    color: white ;
+    background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .99) 73%, #000 74%);
+    color: white;
     text-decoration: none !important;
 }
-.caption{
+
+.caption {
     position: absolute;
     /* bottom: 0; */
     width: 300px;
     word-break: break-word;
     padding: 0px 5px;
-    background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.99) 73%,#000 74%);
+    background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .99) 73%, #000 74%);
 }
-.top{
+
+.top {
     bottom: 50.5%;
     font-size: 16px;
     color: white;
 }
-.btm{
+
+.btm {
     bottom: -2.1%;
     font-size: 16px;
     color: white;
 }
-.captionBig:hover{
+
+.captionBig:hover {
     color: aqua;
 }
-.caption:hover{
-    color: aqua ;
+
+.caption:hover {
+    color: aqua;
 }
+
 @media only screen and (max-width: 1276px) {
-    .topnews{
+    .topnews {
         display: flex;
         flex-direction: column;
     }
-    .left{
+
+    .left {
         display: flex;
         justify-content: center;
     }
-    .right{
+
+    .right {
         display: flex;
         justify-content: center;
     }
-    .right ul{
+
+    .right ul {
         margin-left: 0px !important;
     }
-    .left{
+
+    .left {
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
         flex-direction: column;
     }
-    .left a{
+
+    .left a {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .innerleft{
+
+    .innerleft {
         margin-bottom: 20px;
     }
 }
+
 @media only screen and (max-width: 617px) {
-    .outer-wrapper{
+    .outer-wrapper {
         margin: 30px 0px;
     }
-    .left img{
+
+    .left img {
         height: 200px;
         width: 370px;
     }
-    .right ul{
+
+    .right ul {
         display: block;
     }
-    .captionBig{
+
+    .captionBig {
         /* width: 425px; */
         width: 370px;
         font-size: 16px;
         color: white;
         bottom: -4%;
     }
-    .right img{
+
+    .right img {
         height: 200px;
         width: 370px;
     }
-    #one{
+
+    #one {
         bottom: 78% !important;
     }
-    .right li{
+
+    .right li {
         margin-top: 0px !important;
-        margin-bottom: 40px !important;
+        margin-bottom: 35px !important;
     }
-    #two{
+
+    #two {
         bottom: 53% !important;
     }
-    #three{
+
+    #three {
         bottom: 28% !important;
     }
-    #four{
+
+    #four {
         bottom: 3.2% !important;
     }
-    .topnews li{
+
+    .topnews li {
         margin: 40px 0px;
     }
-    .caption{
+
+    .caption {
         width: 370px;
     }
 }
+
 @media only screen and (max-width: 437px) {
-    .left img{
+    .left img {
         height: 225px;
         width: 360px;
     }
-    .captionBig img{
+
+    .captionBig img {
         width: 360px;
     }
-    .captionBig{
+
+    .captionBig {
         width: 360px;
+    }
+}
+
+@media only screen and (max-width: 393px) {
+    .left img {
+        height: 180px;
+        width: 310px;
+    }
+
+    .left h4 {
+        width: 310px;
+        font-size: 14px;
+    }
+
+    .right img {
+        height: 180px;
+        width: 310px;
+    }
+
+    .right h4 {
+        width: 310px;
+        font-size: 14px;
     }
 }
 
@@ -182,6 +239,6 @@ background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.99) 73%,#000 74%);
 color: white !important;
 text-decoration: none !important; */
 /* problem fixing */
-.innerleft{
+.innerleft {
     position: relative;
 }
