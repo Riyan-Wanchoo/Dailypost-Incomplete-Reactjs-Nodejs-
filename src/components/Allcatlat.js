@@ -8,9 +8,9 @@ const Allcatlat = () => {
                 <div className='djh'>
                     <div className="two">
                         <h2>India</h2>
-                        <h5 style={{ marginBottom: "0px" }}>All India <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <a href='/'><h5 style={{ marginBottom: "0px" }}>All India <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16">
                             <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                        </svg></h5>
+                        </svg></h5></a>
                     </div>
                     <hr />
                     <div className='djh-cont'>
@@ -49,22 +49,22 @@ const Allcatlat = () => {
                             </div>
                         </div>
                         <div className="djh-cards">
-                            <div className="djh-card">
+                            <a href='/'><div className="djh-card">
                                 <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/umran.jpg" alt="" />
                                 <span>I am living through Umran Malik: Mentor Dale Steyn in awe of SRH pacer</span>
-                            </div>
-                            <div className="djh-card">
+                            </div></a>
+                            <a href='/'><div className="djh-card">
                                 <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/umran.jpg" alt="" />
                                 <span>I am living through Umran Malik: Mentor Dale Steyn in awe of SRH pacer</span>
-                            </div>
-                            <div className="djh-card">
+                            </div></a>
+                            <a href='/'><div className="djh-card">
                                 <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/umran.jpg" alt="" />
                                 <span>I am living through Umran Malik: Mentor Dale Steyn in awe of SRH pacer</span>
-                            </div>
-                            <div className="djh-card">
+                            </div></a>
+                            <a href='/'><div className="djh-card">
                                 <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/umran.jpg" alt="" />
                                 <span>I am living through Umran Malik: Mentor Dale Steyn in awe of SRH pacer</span>
-                            </div>
+                            </div></a>
                         </div>
                         <div style={{ marginLeft: "20px" }} className="djh-stories story2">
                             <div className="storyItem">

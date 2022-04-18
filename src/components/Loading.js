@@ -12,7 +12,7 @@ const Loading = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        flexDirection: "column"}}>
+        flexDirection: "column"}} className='cont-load'>
         <img style={{height: "114px", width: "307px"}} src="/Loading.gif" alt="" />
         <h4><span>Dailypost</span></h4>
         <h5 className='loading-p' style={{ color: "#0195dd"}}>"Share awareness, Gain awareness"</h5>

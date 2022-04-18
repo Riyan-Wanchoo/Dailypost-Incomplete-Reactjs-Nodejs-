@@ -49,7 +49,8 @@ a:hover{
 }
 .category{
     margin-bottom: 2px !important;
-    color: #e24700;
+    /* color: #e24700; */
+    color: #0195dd;
 }
 .title{
     margin-bottom: 5px !important;
@@ -86,7 +87,8 @@ a:hover{
     margin-bottom: 8px;
 }
 .mal-category{
-    color: #e24700;
+    /* color: #e24700; */
+    color: #0195dd;
     font-weight: bold;
 }
 .mal-title{

@@ -49,9 +49,10 @@
     height: 2.5px;
     color: #0016f5;
     opacity: 1;
-    width: 15%;
+    width: 100%;
     margin-left: 6px;
-    margin-top: 5px;
+    margin-top: 10px;
+    border-radius: 100px;
 }
 
 .two h2 {

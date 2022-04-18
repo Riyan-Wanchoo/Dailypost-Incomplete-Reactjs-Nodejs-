@@ -24,7 +24,10 @@ const Slug = () => {
     useEffect(() => {
         fetchFromDb()
     }, [])
-
+    useEffect(() => {
+      sessionStorage.setItem("doneOne", true)
+    }, [])
+    
     const fetchFromDb = async () => {
         const url = 'http://localhost:8000/api/fetchContent'
         let response = await fetch(url, {
@@ -50,7 +53,7 @@ const Slug = () => {
         }
     }
     window.addEventListener("scroll", () => {
-        if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
             setbutton({
                 display: "block",
                 width: "60px",
@@ -61,7 +64,7 @@ const Slug = () => {
                 cursor: "pointer"
             })
         }
-        else if (document.body.scrollTop < 1500 || document.documentElement.scrollTop < 1500) {
+        else if (document.body.scrollTop < 500 || document.documentElement.scrollTop < 500) {
             setbutton({
                 display: "none",
                 width: "60px",

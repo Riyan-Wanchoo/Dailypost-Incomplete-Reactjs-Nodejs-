@@ -92,7 +92,7 @@ const Navbar = () => {
     }
   }
   return (
-    <nav>
+    <nav className="navbar-dp">
       <div className="time">
         <div className="date">
           <span>{days[day]}, {today}</span><span className="ISTtime">{time} IST</span><span className="newdelhi" style={{ borderRight: "none" }}>New Delhi</span>
@@ -134,6 +134,7 @@ const Navbar = () => {
             <li><Link to="/news/sports">Sports</Link></li>
             <li><Link to="/news/science">Science</Link></li>
             <li><Link to="/news/travel">Travel</Link></li>
+            <li><Link to="/admin/login">Construction</Link></li>
           </ul>
         </div>
       </div>

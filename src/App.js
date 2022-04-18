@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 //Component imports
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import AdminLog from "./components/AdminLog";
+import Dashboard from "./components/Dashboard";
 // import Footer from "./components/Footer";
 // Category imports
 import India from "./categories/India";
@@ -20,7 +22,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/news/india" element={<India />} />
@@ -33,6 +35,8 @@ function App() {
         <Route path="/news/science" element={<Science />} />
         <Route path="/news/travel" element={<Travel />} />
         <Route path="/news/:category/:slug" element={<Slug />} />
+        <Route exact path="/admin/login" element={<AdminLog />} />
+        <Route exact path="/admin/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
