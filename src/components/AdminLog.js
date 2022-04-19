@@ -18,6 +18,7 @@ const AdminLog = () => {
         const json = await response.json()
         if (json.success == true) {
             navigate("/admin/dashboard")
+            sessionStorage.setItem("Auth", "Authenticated")
         }
     }
 

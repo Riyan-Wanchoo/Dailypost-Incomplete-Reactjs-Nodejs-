@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+    const navigate = useNavigate();
     const [data, setdata] = useState({
         title: null,
         category: null,
@@ -10,12 +12,19 @@ const Dashboard = () => {
         slug: null,
         imageUrl: null,
         imageDesc: null,
-        auth: "johnDoeAuth@Dailypost-Auth"
+        auth: null
     })
     const [preview, setpreview] = useState("nothing to preview")
     const [alert, setalert] = useState({
         display: "none"
     })
+
+    useEffect(() => {
+      if (sessionStorage.getItem("Auth")!=="Authenticated") {
+          navigate("/")
+      }
+    }, [])
+    
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -30,7 +39,6 @@ const Dashboard = () => {
             imageDesc: document.getElementById("ImageDesc").value,
             auth: "johnDoeAuth@Dailypost-Auth"
         })
-        console.log(data)
         const response = await fetch("http://localhost:8000/api/addNews", {
             method: "POST",
             headers: {
@@ -39,7 +47,7 @@ const Dashboard = () => {
             body: JSON.stringify({data})
         })
         const json = await response.json()
-        if (json.success == true) {
+        if (json.success === true) {
             setalert({
                 display: "block"
             })
