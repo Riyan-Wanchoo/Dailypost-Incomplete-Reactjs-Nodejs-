@@ -156,3 +156,45 @@
         justify-content: space-between;
     }
 }
+.commentItem{
+    display: flex;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.likes{
+    display: flex;
+}
+.comment-img{
+    padding-right: 8px;
+}
+.comment-img img{
+    border-radius: 111px;
+}
+.viewreply span{
+    color: #e24700
+}
+.addComment{
+    display: flex;
+    flex-direction: column;
+}
+.addComm-content{
+    width: 100%;
+}
+.addComm-content input{
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+}
+.addComment-inner{
+    display: flex;
+}
+.addComment-inner2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.addReply{
+    margin-top: 12px;
+}
