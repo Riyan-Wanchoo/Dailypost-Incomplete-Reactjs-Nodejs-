@@ -6,12 +6,15 @@ router.post('/', (req, res) => {
     if (req.body.auth == "johnDoeAuth@Dailypost-Auth") {
         const comment = req.body.comment
         const parentId = req.body.parentId
-        const userId = req.body.userId
+        const slug = req.body.slug
+        const date = req.body.date
 
         const commentIns = Comments({
             comment: comment,
             parentId: parentId,
-            userId: userId
+            userId: "Anonymous user",
+            slug: slug,
+            date: date
         })
         commentIns.save()
         res.json({

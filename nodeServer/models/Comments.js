@@ -7,7 +7,8 @@ const commentSchema = new Schema({
   dislikes: {type: Number, default: 0},
   parentId: Number,
   userId: String,
-  date: { type: Date, default: Date.now },
+  slug: String,
+  date: { type: String },
 });
 
 module.exports = mongoose.model("Comments", commentSchema)

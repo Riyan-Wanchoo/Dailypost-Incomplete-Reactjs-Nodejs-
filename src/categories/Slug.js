@@ -204,7 +204,7 @@ const Slug = () => {
                     </div>
                 </div>
             }
-            <Comments/>
+            <Comments slug={slug}/>
             <Footer />
         </>
     )
