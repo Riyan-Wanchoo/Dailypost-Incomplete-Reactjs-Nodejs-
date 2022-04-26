@@ -46,10 +46,15 @@
 }
 @media only screen and (max-width: 507px) {
     .cont-load h4{
-        width: 80%;
+        width: 97%;
         text-align: center;
     }
     .quote-author{
         width: 80%;
+    }
+}
+@media only screen and (max-width: 931px) {
+    .inner-cont-load{
+        width: 90%;
     }
 }
