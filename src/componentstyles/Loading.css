@@ -16,9 +16,40 @@
     height: 114px;
     width: 307px;
 }
-
+.cont-load p{
+    font-family: 'Updock', cursive;
+    font-size: 27px;
+    font-weight: 900;
+}
+.quote-author{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.inner-cont-load{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+}
+.cont-load h4{
+    font-family: 'Tangerine', cursive;
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+}
 @media only screen and (max-width: 318px) {
     .loading-p {
         font-size: 16px;
+    }
+}
+@media only screen and (max-width: 507px) {
+    .cont-load h4{
+        width: 80%;
+        text-align: center;
+    }
+    .quote-author{
+        width: 80%;
     }
 }

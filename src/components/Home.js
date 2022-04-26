@@ -42,7 +42,7 @@ const Home = () => {
         setdata(parsedres)
         setloading(false)
         sessionStorage.setItem("doneOne", true);
-      }, 4600);
+      }, 9000);
     }
   }
 
