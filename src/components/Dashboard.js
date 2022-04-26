@@ -20,11 +20,12 @@ const Dashboard = () => {
     })
 
     useEffect(() => {
-      if (sessionStorage.getItem("Auth")!=="Authenticated") {
-          navigate("/")
-      }
+        if (sessionStorage.getItem("Auth") !== "Authenticated") {
+            navigate("/")
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
+
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -44,7 +45,7 @@ const Dashboard = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({data})
+            body: JSON.stringify({ data })
         })
         const json = await response.json()
         if (json.success === true) {

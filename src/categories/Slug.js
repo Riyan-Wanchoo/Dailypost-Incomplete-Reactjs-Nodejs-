@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from "react-router-dom"
 import "../componentstyles/slug.css"
 import { Link } from 'react-router-dom';
@@ -21,12 +21,16 @@ const Slug = () => {
     const slug = params.slug
     const category = params.category
     const IST = new Date(Onenews.date).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' });
+    const location = window.location.href
+    const title = Onenews.title
+    const encodedUrl = encodeURIComponent(location).replace(/'/g, "%27").replace(/"/g, "%22");
+    const copy = useRef(null)
+    const copied = useRef(null)
 
     useEffect(() => {
         fetchFromDb()
-    }, [])
-    useEffect(() => {
         sessionStorage.setItem("doneOne", true)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const fetchFromDb = async () => {
@@ -77,6 +81,16 @@ const Slug = () => {
             })
         }
     })
+    const handleCopy = () => {
+        navigator.clipboard.writeText(location)
+        copy.current.style.display = "none"
+        copied.current.style.display = "block"
+
+        setTimeout(() => {
+            copy.current.style.display = "block"
+            copied.current.style.display = "none"
+        }, 4000);
+    }
     const goToTop = () => {
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
@@ -118,26 +132,41 @@ const Slug = () => {
                                     </div>
                                 </div>
                                 <div className="tright">
-                                    <svg id='icon1' title="Share on Facebook" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#3057a0" className="ico mx-2 bi bi-facebook" viewBox="0 0 16 16">
-                                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                                    </svg>
-                                    <svg id='icon2' title="Share on Twitter" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#42bcf1" className="ico mx-2 bi bi-twitter" viewBox="0 0 16 16">
-                                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-                                    </svg>
-                                    <svg id='icon3' title="Share on Whatsapp" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1d9e10" className="ico mx-2 bi bi-whatsapp" viewBox="0 0 16 16">
-                                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
-                                    </svg>
-                                    <svg id='icon4' title="Copy to Clipboard" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="orange" className="ico mx-2 bi bi-clipboard" viewBox="0 0 16 16">
-                                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
-                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
-                                    </svg>
-                                    <svg id='icon5' title="Post a Comment" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="orange" className="ico mx-2 bi bi-chat-fill" viewBox="0 0 16 16">
-                                        <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
-                                    </svg>
+                                    <a target="_blank" rel="noreferrer" href={"https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl + "&amp;src=sdkpreparse"} data-bs-toggle="tooltip" data-bs-placement="top" title='Share on Facebook'>
+                                        <svg id='icon1' title="Share on Facebook" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#3057a0" className="ico mx-2 bi bi-facebook" viewBox="0 0 16 16">
+                                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                        </svg>
+                                    </a>
+                                    <a target="_blank" rel="noreferrer" href={"https://twitter.com/intent/tweet?text=" + title + "&url=" + encodedUrl} data-bs-toggle="tooltip" data-bs-placement="top" title='Share on Twitter'>
+                                        <svg id='icon2' title="Share on Twitter" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#42bcf1" className="ico mx-2 bi bi-twitter" viewBox="0 0 16 16">
+                                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                                        </svg>
+                                    </a>
+                                    <a target="_blank" rel="noreferrer" href={"https://web.whatsapp.com/send?text=" + encodedUrl} data-bs-toggle="tooltip" data-bs-placement="top" title='Share on Whatsapp'>
+                                        <svg id='icon3' title="Share on Whatsapp" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#1d9e10" className="ico mx-2 bi bi-whatsapp" viewBox="0 0 16 16">
+                                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                                        </svg>
+                                    </a>
+                                    <div data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to Clipboard" onClick={handleCopy}>
+                                        <svg ref={copy} id='icon4' title="Copy to Clipboard" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="ico mx-2 bi bi-clipboard" viewBox="0 0 16 16">
+                                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                        </svg>
+                                        <svg ref={copied} style={{ display: "none" }} id='icon4' title="Copied to Clipboard" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="ico mx-2 bi bi-clipboard-check" viewBox="0 0 16 16">
+                                            <path fillRule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                        </svg>
+                                    </div>
+                                    <a href='#comment'>
+                                        <svg id='icon5' title="Post a Comment" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="orange" className="ico mx-2 bi bi-chat-fill" viewBox="0 0 16 16">
+                                            <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
                             {/* <img className='mainImg' src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/New_York1_1200x768.jpeg?xgScfsqHP4GGJDhGgRmZG4G_Q_ASh5b2" /> */}
-                            <img className='mainImg' src={Onenews.imageUrl} />
+                            <img className='mainImg' src={Onenews.imageUrl} alt="img" />
                             <div className='descImg'>
                                 {/* <p className='mt-2 mb-0' style={{ width: "750px", fontFamily: "'Open Sans', sans-serif", fontSize: "15px" }}>Screengrab from a cellphone video shows people lying on the platform at the Brooklyn subway station in New York after an unidentified gunman opened fire. (AP/PTI)</p> */}
                                 <p className='mt-2 mb-0' style={{ width: "750px", fontFamily: "'Open Sans', sans-serif", fontSize: "15px" }}>{Onenews.imageDesc}</p>
@@ -204,7 +233,7 @@ const Slug = () => {
                     </div>
                 </div>
             }
-            <Comments slug={slug}/>
+            <Comments slug={slug} />
             <Footer />
         </>
     )

@@ -198,3 +198,8 @@
 .addReply{
     margin-top: 12px;
 }
+.notif{
+    position: absolute;
+    font-size: 14px;
+    font-weight: 500;
+}

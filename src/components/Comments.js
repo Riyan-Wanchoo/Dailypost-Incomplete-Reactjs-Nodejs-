@@ -8,10 +8,15 @@ const Comments = (props) => {
     // const [displayReply, setdisplayReply] = useState({
     //     display: "none"
     // })
+    const [notif, setnotif] = useState({
+        message: "",
+        color: ""
+    })
     const Datevar = new Date()
 
     useEffect(() => {
         getcomments()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     async function getcomments(url = "http://localhost:8000/api/fetchComments") {
@@ -30,25 +35,37 @@ const Comments = (props) => {
         setcomment(e.target.value)
     }
     const handleSubmit = async (event) => {
-        const tdyDate = Datevar.getDate() +'-'+(Datevar.getMonth()+1)+'-'+ Datevar.getFullYear() + " " + Datevar.getHours() + ":" + Datevar.getMinutes()
         event.preventDefault()
-        const response = await fetch("http://localhost:8000/api/saveComment", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                auth: "johnDoeAuth@Dailypost-Auth",
-                comment: commenttxt,
-                parentId: null,
-                userId: "Anonymous user",
-                slug: props.slug,
-                date: tdyDate
+        if (commenttxt === "") {
+            setnotif({
+                message: "Comment cannot be blank",
+                color: "red"
             })
-        })
-        const parsedres = await response.json()
-        setcomment("")
-        getcomments()
+        }
+        else {
+            const tdyDate = Datevar.getDate() + '-' + (Datevar.getMonth() + 1) + '-' + Datevar.getFullYear() + " " + Datevar.getHours() + ":" + Datevar.getMinutes()
+            const response = await fetch("http://localhost:8000/api/saveComment", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    auth: "johnDoeAuth@Dailypost-Auth",
+                    comment: commenttxt,
+                    parentId: null,
+                    userId: "Anonymous user",
+                    slug: props.slug,
+                    date: tdyDate
+                })
+            })
+            console.log(response)
+            setcomment("")
+            getcomments()
+            setnotif({
+                message: "Comment posted successfully!!!",
+                color: "green"
+            })
+        }
     }
     // const showAddReply = () => {
     //     setdisplayReply({
@@ -62,7 +79,7 @@ const Comments = (props) => {
     // }
     return (
         <>
-            <div className="mb-5">
+            <div className="mb-5" id="comment">
                 <div className='text-center'>
                     <button className="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Post a Comment ({!loading && data[0].length})</button>
                 </div>
@@ -76,16 +93,19 @@ const Comments = (props) => {
                     <div className="addComment">
                         <div className='addComment-inner'>
                             <div className="comment-img">
-                                <img id="img" height="40" width="40" src="https://yt3.ggpht.com/ytc/AKedOLTZQI_RX4LKB2iC0mSVB2pTEOCt5IBwsASJCrcu=s88-c-k-c0x00ffffff-no-rj" />
+                                <img id="img" height="40" width="40" alt='img' src="https://yt3.ggpht.com/ytc/AKedOLTZQI_RX4LKB2iC0mSVB2pTEOCt5IBwsASJCrcu=s88-c-k-c0x00ffffff-no-rj" />
                             </div>
                             <div className="addComm-content">
                                 <input type="text" placeholder='Add a Comment' value={commenttxt} onChange={handleChange} />
+                                <div className="notif" style={{color: notif.color}}>{notif.message}</div>
                             </div>
                         </div>
                         <form onSubmit={handleSubmit}>
                             <div className='addComment-inner2'>
-                                <span className='mx-2 btn btn-danger'>Cancel</span>
-                                <button className='btn btn-info' type='submit' id="comment">Comment</button>
+                                <div>
+                                    <span className='mx-2 btn btn-danger'>Cancel</span>
+                                    <button className='btn btn-info' type='submit' id="comment">Comment</button>
+                                </div>
                             </div>
                         </form>
                         {/* <b>Be the first one to comment</b> */}
@@ -94,7 +114,7 @@ const Comments = (props) => {
                         {!loading && data && data[0].map((element) => {
                             return (<div className="commentItem" key={element._id}>
                                 <div className="comment-img">
-                                    <img id="img" height="40" width="40" src="https://yt3.ggpht.com/ytc/AKedOLTZQI_RX4LKB2iC0mSVB2pTEOCt5IBwsASJCrcu=s88-c-k-c0x00ffffff-no-rj" />
+                                    <img id="img" height="40" width="40" alt='img' src="https://yt3.ggpht.com/ytc/AKedOLTZQI_RX4LKB2iC0mSVB2pTEOCt5IBwsASJCrcu=s88-c-k-c0x00ffffff-no-rj" />
                                 </div>
                                 <div className="comment-body">
                                     <div className="comment-sender">
@@ -115,7 +135,7 @@ const Comments = (props) => {
                                         <div className="addComment">
                                             <div className='addComment-inner'>
                                                 <div className="comment-img">
-                                                    <img id="img" height="40" width="40" src="https://yt3.ggpht.com/ytc/AKedOLTZQI_RX4LKB2iC0mSVB2pTEOCt5IBwsASJCrcu=s88-c-k-c0x00ffffff-no-rj" />
+                                                    <img id="img" height="40" width="40" alt='img' src="https://yt3.ggpht.com/ytc/AKedOLTZQI_RX4LKB2iC0mSVB2pTEOCt5IBwsASJCrcu=s88-c-k-c0x00ffffff-no-rj" />
                                                 </div>
                                                 <div className="addComm-content">
                                                     <input style={{ paddingTop: "6px" }} type="text" placeholder='Add a Reply' />
@@ -130,7 +150,7 @@ const Comments = (props) => {
                                 </div>
                             </div>)
                         })}
-                        {!loading && data[0].length===0 && <div style={{display: "flex", justifyContent: "center", margin:"200px 0px", fontSize: "25px"}}><b>Be the first to comment</b></div>}
+                        {!loading && data[0].length === 0 && <div style={{ display: "flex", justifyContent: "center", margin: "200px 0px", fontSize: "25px" }}><b>Be the first to comment</b></div>}
                         {/* {!loading && document.getElementById(data[0].replies[0].parentId) && data[0].replies.map((reply) => {
                             document.getElementById(reply.parentId).appendChild(
                                 <div className="reply">

@@ -18,7 +18,7 @@ const Navbar = () => {
   const hms = newDateArr[1].split(":")
 
   const day = newDate2.getDay()
-  const date = newDate2.getDate()
+  // const date = newDate2.getDate()
   const time = hms[0] + ":" + hms[1] + " PM"
   //from stackoverflow!!!
   var today
@@ -39,54 +39,16 @@ const Navbar = () => {
       head2.style.display = "flex"
     }
   }
-  /*const changeLang = (language) => {
-    sessionStorage.setItem("lang", language)
-    document.getElementById("English").classList.remove("active")
-    document.getElementById("Hindi").classList.remove("active")
-    document.getElementById(language).classList.add("active")
-
-    const topNav = document.getElementsByClassName('date')[0].innerText
-    if (language == "English") {
-      document.getElementsByClassName("secret")[0].src = srcData.English
-      document.getElementsByClassName("secretp")[0].innerText = "English"
-      convertnSet(topNav, "en")
-    }
-    else if (language == "French") {
-      document.getElementsByClassName("secret")[0].src = srcData.French
-      document.getElementsByClassName("secretp")[0].innerText = "French"
-      convertnSet(topNav, "fr")
-    }
-    else if (language == "Hindi") {
-      document.getElementsByClassName("secret")[0].src = srcData.Hindi
-      document.getElementsByClassName("secretp")[0].innerText = "Hindi"
-      convertnSet(topNav, "hi")
-    }
-  }
-  const convertnSet = async (text, language) => {
-    const res = await fetch("https://libretranslate.de/translate", {
-      method: "POST",
-      body: JSON.stringify({
-        q: text,
-        source: "en",
-        target: language,
-        format: "text"
-      }),
-      headers: { "Content-Type": "application/json" }
-    });
-    const response = await res.json()
-    console.log(response.translatedText);
-    document.getElementsByClassName("date")[0].innerHTML = `<span>${response.translatedText.split(" ")[0]}, ${response.translatedText.split(" ")[1] + " " + response.translatedText.split(" ")[2] + " " + response.translatedText.split(" ")[3]}</span><span>${response.translatedText.split(" ")[4]} IST</span><span style={{ borderRight: "none" }}>New Delhi</span>`
-  }*/
   const change = (language)=>{
     document.getElementById("English").classList.remove("active")
     document.getElementById("Hindi").classList.remove("active")
     document.getElementById(language).classList.add("active")
 
-    if (language == "English") {
+    if (language === "English") {
       document.getElementsByClassName("secret")[0].src = srcData.English
       document.getElementsByClassName("secretp")[0].innerText = "English"
     }
-    else if (language == "Hindi") {
+    else if (language === "Hindi") {
       document.getElementsByClassName("secret")[0].src = srcData.Hindi
       document.getElementsByClassName("secretp")[0].innerText = "Hindi"
     }
@@ -97,9 +59,6 @@ const Navbar = () => {
         <div className="date">
           <span>{days[day]}, {today}</span><span className="ISTtime">{time} IST</span><span className="newdelhi" style={{ borderRight: "none" }}>New Delhi</span>
         </div>
-        {/* <div className="country"> */}
-        {/* <img style={{ width: "15px", marginRight: "5px", marginBottom: "2px" }} src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png?20111003033457" alt="" />
-          India */}
         <div className="dropdown" role="button">
           <p style={{ margin: "0" }} className="" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
             <img className="secret" style={{ width: "15px", marginRight: "5px", marginBottom: "2px" }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/2560px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png" alt="" /><span className="secretp">English</span> <img style={{ width: "15px" }} src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/344/external-down-basic-ui-elements-flatart-icons-outline-flatarticons.png" alt="" />
@@ -113,7 +72,6 @@ const Navbar = () => {
             </a></li>
           </ul>
         </div>
-        {/* </div> */}
       </div>
       <div className="head1">
         <a href="/"><img src="/dailypost-logo.png" alt="Logo" /></a>
@@ -134,7 +92,6 @@ const Navbar = () => {
             <li><Link to="/news/sports">Sports</Link></li>
             <li><Link to="/news/science">Science</Link></li>
             <li><Link to="/news/travel">Travel</Link></li>
-            <li><Link to="/admin/login">Construction</Link></li>
           </ul>
         </div>
       </div>
