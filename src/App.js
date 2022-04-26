@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import AdminLog from "./components/AdminLog";
 import Dashboard from "./components/Dashboard";
+import NotFound from "./components/NotFound"
 // import Footer from "./components/Footer";
 // Category imports
 import India from "./categories/India";
@@ -21,7 +22,7 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"style={{height: "100vh"}}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -37,6 +38,7 @@ function App() {
         <Route path="/news/:category/:slug" element={<Slug />} />
         <Route exact path="/admin/login" element={<AdminLog />} />
         <Route exact path="/admin/dashboard" element={<Dashboard />} />
+        <Route path='*' element={<NotFound/>} />
       </Routes>
     </div>
   );

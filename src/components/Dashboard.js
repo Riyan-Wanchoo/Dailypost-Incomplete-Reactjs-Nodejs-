@@ -63,7 +63,7 @@ const Dashboard = () => {
                 Success: Stored successfully
             </div>
             <div className='my-4'>
-                <h5>Check out our new dashboard <a href="/" style={{ textDecoration: "underline" }}>here</a></h5>
+                <h5>Check out our new dashboard <a href="https://riyan-wanchoo.github.io/admin-dashboard-dp.github.io/" style={{ textDecoration: "underline" }}>here</a></h5>
                 <div className="container mt-3" style={{ width: "65%", marginBottom: "200px" }}>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
