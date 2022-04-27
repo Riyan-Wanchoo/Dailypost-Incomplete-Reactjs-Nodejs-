@@ -5,13 +5,13 @@ import React from 'react'
 
 const Latestnews = (props) => {
   const handleStorydivclick = (category, slug) => {
-    window.open(`/news/${category}/${slug}`, '_blank');
+    window.open(`/news/${category}/${slug}`, '_self');
   }
   const handleNewsdivclick = (category, slug) => {
-    window.open(`/news/${category}/${slug}`, '_blank');
+    window.open(`/news/${category}/${slug}`, '_self');
   }
   const handleMaldivclick = (category, slug) => {
-    window.open(`/news/${category}/${slug}`, '_blank');
+    window.open(`/news/${category}/${slug}`, '_self');
   }
   const hover = (item, index) => {
     const title = document.getElementById(item + index)
@@ -53,7 +53,7 @@ const Latestnews = (props) => {
         })}
       </div>
       <div className="may-also-like">
-        <h5 className="mal-header">You may also like</h5>
+        <h5 className="mal-header">Also Read</h5>
         {props.newsData.mal && props.newsData.mal.map((mal, index)=>{
           return <div className="mal-Item" key={mal.imageUrl} onClick={() => handleMaldivclick(mal.category, mal.slug)} onMouseOver={() => hover("malItem", index)} onMouseLeave={() => unHover("malItem", index)}>
           <img src={mal.imageUrl} alt="" className="mal-img" />

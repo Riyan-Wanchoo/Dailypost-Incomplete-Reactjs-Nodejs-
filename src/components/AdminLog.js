@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../componentstyles/AdminLog.css"
 
-const AdminLog = () => {
+const AdminLog = (props) => {
     const [credentials, setcredentials] = useState({ id: "", password: "" })
     const navigate = useNavigate();
 

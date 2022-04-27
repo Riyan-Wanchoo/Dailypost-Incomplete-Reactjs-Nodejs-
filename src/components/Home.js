@@ -6,7 +6,7 @@ import Loading from "./Loading"
 import Footer from "./Footer"
 import Allcatlat from "./Allcatlat"
 
-const Home = () => {
+const Home = (props) => {
   const [data, setdata] = useState({})
   const [loading, setloading] = useState(true)
   const [svgFill, setsvgFill] = useState("#0195dd")
@@ -25,6 +25,7 @@ const Home = () => {
   }, [])
   
   async function getnews(url = 'http://localhost:8000/api/fetchnews') {
+    props.setProgress(0)
     setloading(true)
     let response = await fetch(url, {
       method: 'GET',
@@ -34,7 +35,9 @@ const Home = () => {
     });
     const parsedres = await response.json()
     if (sessionStorage.getItem("doneOne") === "true") {
+      props.setProgress(80)
       setdata(parsedres)
+      props.setProgress(100)
       setloading(false)
     }
     else {

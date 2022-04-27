@@ -1,7 +1,10 @@
 import React from 'react'
 import '../componentstyles/NotFount.css'
 
-const notFound = () => {
+const notFound = (props) => {
+    props.setProgress(0)
+    props.setProgress(60)
+    props.setProgress(100)
     return (
         <div className="container-fluid" style={{height: "100%", backgroundColor: "#f8f9fc"}}>
             <div className="text-center">

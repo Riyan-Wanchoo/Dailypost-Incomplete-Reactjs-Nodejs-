@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Footer from "../components/Footer"
 import Comments from '../components/Comments';
 
-const Slug = () => {
+const Slug = (props) => {
     const [svgFill, setsvgFill] = useState("#0195dd")
     const [buttonStyle, setbutton] = useState({
         display: "none",
@@ -34,6 +34,7 @@ const Slug = () => {
     }, [])
 
     const fetchFromDb = async () => {
+        props.setProgress(0)
         const url = 'http://localhost:8000/api/fetchContent'
         let response = await fetch(url, {
             method: 'POST',
@@ -48,13 +49,16 @@ const Slug = () => {
             })
         })
         const parsedres = await response.json()
+        props.setProgress(70)
         if (parsedres == null) {
             setOnenews({
                 content: "<h2 style='text-align: center;'>404 Page not found</h2>"
             })
+            props.setProgress(100)
         }
         else {
             setOnenews(parsedres)
+            props.setProgress(100)
         }
     }
     window.addEventListener("scroll", () => {
